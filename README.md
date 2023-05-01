@@ -4,8 +4,7 @@ A Python SDK package for using The One API
 ## Install
 
 ```bash
-TODO
-pip install lotrsdk
+pip3 install lotrsdk
 ```
 
 ## Usage (Recommended)
@@ -16,6 +15,7 @@ pip install lotrsdk
 
 3. Create a .env file in the root of your project directory. The contents will look like this:
 ```
+# .env file
 lotrsdk-api-key = "YOUR_KEY_HERE"
 ```
 4. Import the `lotrsdk` objects (packages) into your project.
