@@ -3,6 +3,7 @@ import os
 from lotrsdk.entities.base_entity import BaseEntity
 
 class TestBaseEntity(unittest.TestCase):
+    """ Testing BaseEntity class """
 
     def test_get_api_key(self):
         """ BaseEntity.get_api_key() """
