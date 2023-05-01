@@ -1,5 +1,4 @@
 import unittest
-import os
 from lotrsdk.entities.collection import Collection
 
 class TestCollection(unittest.TestCase):

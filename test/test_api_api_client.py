@@ -1,5 +1,4 @@
 import unittest
-import os
 from lotrsdk.api.api_client import ApiClient
 
 class TestApiClient(unittest.TestCase):

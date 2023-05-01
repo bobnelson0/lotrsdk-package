@@ -1,5 +1,4 @@
 import unittest
-import os
 from lotrsdk.entities.movie import Movie
 
 class TestMovie(unittest.TestCase):

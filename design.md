@@ -37,3 +37,5 @@ With any project that has to be done under a tight deadline, there will be a lis
 * I implemented base querying based on the docs. However, negation (`!=`) and comparison (`> < >= <=`) operators aren't implemented yet.
 * Only `GET` calls are implemented. Should do the others when needed.
 * The unit tests only test the easy to test functions. Additional unit tests should be added, using mock objects, to mock and test the API requests.
+* I had an idea to add support for a custom logger to the `ApiClient`, but didn't get around to it.
+* I also want to integrate the unit test status (`pass`|`fail`) into github.

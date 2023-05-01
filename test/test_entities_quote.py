@@ -1,5 +1,4 @@
 import unittest
-import os
 from lotrsdk.entities.quote import Quote
 
 class TestQuote(unittest.TestCase):
