@@ -5,7 +5,7 @@ A Python SDK package for using The One API
 ## Install
 
 ```bash
-pip3 install lotrsdk
+pip install lotrsdkbybnelson0
 ```
 
 ## Usage (Recommended)
