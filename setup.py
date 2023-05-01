@@ -9,7 +9,7 @@ DESCRIPTION = 'Python SDK for interacting with The One Ring API'
 AUTHOR = 'Robert (Bobby) Nelson'
 AUTHOR_EMAIL = 'bob.nelson@gmail.com'
 LICENSE = 'MIT'
-REQUIRES = []
+REQUIRES = ['requests >= 2.29.0']
 
 setup(
     name=NAME,
