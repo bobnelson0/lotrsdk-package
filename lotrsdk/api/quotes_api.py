@@ -53,12 +53,13 @@ class QuotesApi:
         Make and API call to get a list of quotes based on a query
 
         Provided a query, returns a collection of Quotes
-        Query example: `name=/towe/i` will return `The Two Towers` movie entity
+        Query example: `dialog=/Hornburg/i` will return Quotes with `Hornburg`
         Filtering documentation here: https://the-one-api.dev/documentation
         Does not support negation (!=) yet.
 
         Args:
-            params (dict, optional): Dict of key value query pairs (ex. {'name': '/towe/i'}). Defaults to None.
+            params (dict, optional): Dict of key value query pairs (ex. {'dialog': '/Hornburg/i'}). 
+                                     Defaults to None.
 
         Returns:
             str: String payload from the API

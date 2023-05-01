@@ -49,13 +49,13 @@ class Movie(BaseEntity):
 
         Args:
             id (str): id of the movie
-            client (MoviesApi): For overriding the client. Defaults to None
+            client (MoviesApi, optional): For overriding the client. Defaults to None
 
         Returns:
             Movie: a movie object
         """
         client = Movie.check_client(client, Movie.CLIENT_CLASS)
-        response = BaseEntity.check_entity(client.get_by_id(id))
+        response = Movie.check_entity(client.get_by_id(id))
         return Movie.extract(response)
 
     @staticmethod

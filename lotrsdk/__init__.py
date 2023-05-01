@@ -1,3 +1,3 @@
 """ __init__.py """
-from .api import MoviesApi, ApiClient
-from .entities import Movie, Collection
+from .api import MoviesApi, QuotesApi, ApiClient
+from .entities import Movie, Quote, Collection
