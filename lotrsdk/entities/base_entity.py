@@ -5,6 +5,8 @@ import os
 class BaseEntity:
     """ A class representing a LOTR object in The One API """
 
+    LOTRSDK_API_KEY = 'lotrsdk-api-key'
+
     def __init__(self, id: str = None):
         """
         Create a new  object with a client
@@ -24,8 +26,8 @@ class BaseEntity:
             client: A client of the proper class
         """
         if client is None:
-            if os.environ.get('api-key'):
-                client = client_class(os.environ.get('api-key'))
+            if os.environ.get(BaseEntity.LOTRSDK_API_KEY):
+                client = client_class(os.environ.get(BaseEntity.LOTRSDK_API_KEY))
             else:
                 raise EnvironmentError("ApiClient failed to initialize, no api-key")
         return client
