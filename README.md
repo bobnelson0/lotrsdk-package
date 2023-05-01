@@ -3,7 +3,8 @@
 A Python SDK package for using The One API
 
 ## Install
-
+The package can be found on PyPi here: https://pypi.org/project/lotrsdkbybnelson0/1.0.0/
+and can be install using pip like this:
 ```bash
 pip install lotrsdkbybnelson0
 ```
