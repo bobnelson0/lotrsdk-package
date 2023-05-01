@@ -4,7 +4,7 @@ LOTR SDK setup.py
 from setuptools import setup, find_packages
 
 NAME = 'lotrsdk'
-VERSION = '0.1'
+VERSION = '1.0.0'
 DESCRIPTION = 'Python SDK for interacting with The One Ring API'
 AUTHOR = 'Robert (Bobby) Nelson'
 AUTHOR_EMAIL = 'bob.nelson@gmail.com'
