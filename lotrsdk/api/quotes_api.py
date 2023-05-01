@@ -1,13 +1,13 @@
-""" The Movies API """
+""" The Quotes API """
 from .api_client import ApiClient
 
-class MoviesApi:
+class QuotesApi:
     """
-    A class containing all movie related API calls, defaults, and logic
+    A class containing all quote related API calls, defaults, and logic
     Uses the ApiClient to make requests
     """
     # Movie API defaults
-    API_PATH = '/movie/'
+    API_PATH = '/quote/'
     QUERY_LIMIT = 1000
 
     def __init__(self, api_key: str):
@@ -21,10 +21,10 @@ class MoviesApi:
 
     def get_by_id(self, id: str) -> str:
         """
-        Make an API call to get 1 movie based on id
+        Make an API call to get 1 quote based on id
 
         Args:
-            id (str): An ID for the movie
+            id (str): An ID for the quote
 
         Returns:
             str: String payload from the API
@@ -34,7 +34,7 @@ class MoviesApi:
 
     def get_all(self, sort: str = None) -> str:
         """
-        Make an API call to get all movies
+        Make an API call to get all quotes
 
         The limit is set to allow the full list to be returned
         Passing a sort string will sort the results (eg. `sort=name:asc`)
@@ -50,9 +50,9 @@ class MoviesApi:
 
     def query(self, params: dict = None) -> str:
         """
-        Make and API call to get a list of movies based on a query
+        Make and API call to get a list of quotes based on a query
 
-        Provided a query, returns a collection of Movies
+        Provided a query, returns a collection of Quotes
         Query example: `name=/towe/i` will return `The Two Towers` movie entity
         Filtering documentation here: https://the-one-api.dev/documentation
         Does not support negation (!=) yet.
