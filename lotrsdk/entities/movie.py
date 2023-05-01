@@ -91,7 +91,7 @@ class Movie(BaseEntity):
         """
         client = Movie.check_client(client, Movie.CLIENT_CLASS)
         return Collection.extract(Movie, client.query(params))
-    
+
     @staticmethod
     def get_quotes(id: str, params: dict, client = None) -> Collection:
         """Get all the quotes from a movie, as a collection of Quote objects

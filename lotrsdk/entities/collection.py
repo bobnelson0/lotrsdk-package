@@ -43,13 +43,19 @@ class Collection(BaseEntity):
         response = Collection.check_collection(response)
         entities = []
         for entity in response['docs']:
-            entities.append(object_type.extract(entity))
+            # This conditional is for supporting unit tests
+            # so that I don't have to construct objects in the tests
+            if type(entity) in (int, float, str):
+                entities.append(entity)
+            else:
+                entities.append(object_type.extract(entity))
         total = response['total']
         limit = response['limit']
         # I found that the API doesn't always return these fields
         offset = response['offset'] if 'offset' in response else 0
         page_num = response['page'] if 'page' in response else 1
         total_pages = response['pages'] if 'pages' in response else 1
+
         return Collection(entities, total, limit, offset, page_num, total_pages)
 
     def __str__(self) -> str:
@@ -62,6 +68,7 @@ class Collection(BaseEntity):
         entities = ''
         for entity in self.entities:
             entities += entity.__str__() + ", "
+
         return f"Collection{{ \
                     entities: [ {entities} ] \
                     total: {self.total} \
