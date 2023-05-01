@@ -16,21 +16,28 @@ class BaseEntity:
 
     @staticmethod
     def check_client(client, client_class):
-        #TODO make a base client class
         """Validate the client
-
-        Raises:
-            EnvironmentError: If the api-key is missing from the env vars
 
         Returns:
             client: A client of the proper class
         """
         if client is None:
-            if os.environ.get(BaseEntity.LOTRSDK_API_KEY):
-                client = client_class(os.environ.get(BaseEntity.LOTRSDK_API_KEY))
-            else:
-                raise EnvironmentError("ApiClient failed to initialize, no api-key")
+            client = client_class(BaseEntity.get_api_key())
         return client
+
+    @staticmethod
+    def get_api_key() -> str:
+        """Get the api-key from the environment variables
+
+        Raises:
+            EnvironmentError: If the api-key is missing from the env vars
+
+        Returns:
+            str: The api-key string
+        """
+        if os.environ.get(BaseEntity.LOTRSDK_API_KEY) is not None:
+            return os.environ.get(BaseEntity.LOTRSDK_API_KEY)
+        raise OSError("ApiClient failed to initialize, no api-key")
 
     @staticmethod
     def check_entity(response: dict) -> dict:
@@ -50,7 +57,7 @@ class BaseEntity:
             dict: The single entry from the response data
         """
         if 'docs' not in response:
-            raise ValueError('Unexpected payload, `docs` missing from response')    
+            raise ValueError('Unexpected payload, `docs` missing from response')
         response = response['docs']
         if not isinstance(response, list):
             raise TypeError('Unexpected type, `docs` is not a list')

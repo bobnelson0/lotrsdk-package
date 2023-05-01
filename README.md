@@ -64,6 +64,8 @@ print(movie_quotes.entities[0])
 ```
 
 ## Test
-```py
-# TODO
+This package uses the `unittest` python package which is standard
+#### Run the unit test suite
+```bash
+$ python -m unittest
 ```
