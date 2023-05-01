@@ -8,6 +8,7 @@ class MoviesApi:
     """
     # Movie API defaults
     API_PATH = '/movie/'
+    API_QUOTE_PATH = '/quote/'
     QUERY_LIMIT = 1000
 
     def __init__(self, api_key: str):
@@ -64,4 +65,23 @@ class MoviesApi:
             str: String payload from the API
         """
         response = self.client.get(self.API_PATH, params)
+        return response
+    
+    def get_quotes(self, movie_id: str, params: dict = None) -> str:
+        """
+        Make and API call to get a list of quotes from a movie
+
+        Provided a query, returns a collection of Quotes
+        Query example: 'name=/towe/i' will return 'The Two Towers'
+        Filtering documentation here: https://the-one-api.dev/documentation
+
+        Args:
+            movie_id (str): string ID of the movie
+            params (dict, optional): Dict of key value query pairs. For filtering. 
+                                     Defaults to None.
+
+        Returns:
+            str: String payload from the API
+        """
+        response = self.client.get(self.API_PATH + movie_id + self.API_QUOTE_PATH, params)
         return response

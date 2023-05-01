@@ -2,6 +2,7 @@
 from __future__ import annotations
 from lotrsdk.api import MoviesApi
 from .base_entity import BaseEntity
+from .quote import Quote
 from .collection import Collection
 
 
@@ -81,7 +82,8 @@ class Movie(BaseEntity):
         Does not support negation (!=) yet.
 
         Args:
-            params (dict): Dict of key value query pairs (ex. {'name': '/towe/i'}). Defaults to None.
+            params (dict): Dict of key value query pairs (ex. {'name': '/towe/i'}). 
+                           Defaults to None.
             client (MoviesApi, optional): For overriding the client. Defaults to None
 
         Returns:
@@ -89,6 +91,22 @@ class Movie(BaseEntity):
         """
         client = Movie.check_client(client, Movie.CLIENT_CLASS)
         return Collection.extract(Movie, client.query(params))
+    
+    @staticmethod
+    def get_quotes(id: str, params: dict, client = None) -> Collection:
+        """Get all the quotes from a movie, as a collection of Quote objects
+        Collection object also contains metadata like total, pages, etc
+
+        Args:
+            id (str): id of the movie
+            params (dict): paging and filtering params
+            client (MoviesApi, optional): For overriding the client. Defaults to None
+
+        Returns:
+            Collection: A Collection of Quote objects plus metadata
+        """
+        client = Movie.check_client(client, Movie.CLIENT_CLASS)
+        return Collection.extract(Quote, client.get_quotes(id, params))
 
     @staticmethod
     def extract(response: dict) -> Movie:

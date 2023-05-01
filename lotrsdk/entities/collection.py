@@ -46,8 +46,8 @@ class Collection(BaseEntity):
             entities.append(object_type.extract(entity))
         total = response['total']
         limit = response['limit']
-        offset = response['offset']
         # I found that the API doesn't always return these fields
+        offset = response['offset'] if 'offset' in response else 0
         page_num = response['page'] if 'page' in response else 1
         total_pages = response['pages'] if 'pages' in response else 1
         return Collection(entities, total, limit, offset, page_num, total_pages)
