@@ -31,7 +31,7 @@ class ApiClient():
 
         # If the key is not present, try to get it from the environment vars
         if not api_key:
-            raise EnvironmentError("API Client failed: api_key has not been set")
+            raise OSError("API Client failed: api_key has not been set")
 
         if base_url is None or base_url == '':
             self.base_url = self.BASE_URL
