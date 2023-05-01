@@ -1,4 +1,5 @@
 # lotrsdk-package
+
 A Python SDK package for using The One API
 
 ## Install
@@ -64,6 +65,7 @@ print(movie_quotes.entities[0])
 ```
 
 ## Test
+
 This package uses the `unittest` python package which is standard
 #### Run the unit test suite
 ```bash
